@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Портфолио — делаю сайты и лендинги</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root{
+  --bg:#0a0a0f;
+  --surface:#12121a;
+  --text:#f2f2f7;
+  --text-dim:#9a9aad;
+  --accent:#8b7cf6;
+  --border:rgba(255,255,255,.08);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.2}
+a{color:inherit;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:0 24px}
+
+header{padding:110px 0 80px;text-align:center;position:relative;overflow:hidden}
+header::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(500px 300px at 30% 0%,rgba(139,124,246,.14),transparent 70%),
+    radial-gradient(500px 300px at 75% 20%,rgba(212,245,66,.06),transparent 70%);
+}
+.badge{
+  position:relative;display:inline-block;font-size:13px;color:var(--text-dim);
+  border:1px solid var(--border);border-radius:999px;padding:7px 18px;margin-bottom:28px;
+}
+header h1{position:relative;font-size:clamp(34px,6vw,58px);margin-bottom:18px}
+header h1 span{
+  background:linear-gradient(90deg,#8b7cf6,#c4b5fd);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+header p{position:relative;color:var(--text-dim);max-width:560px;margin:0 auto;font-size:16px}
+
+section{padding:50px 0}
+h2{font-size:26px;margin-bottom:32px}
+
+.works{display:flex;flex-direction:column;gap:24px}
+.work{
+  display:grid;grid-template-columns:280px 1fr;gap:0;overflow:hidden;
+  background:var(--surface);border:1px solid var(--border);border-radius:22px;
+  transition:transform .2s,border-color .2s;cursor:pointer;
+}
+.work:hover{transform:translateY(-4px);border-color:rgba(139,124,246,.4)}
+.work:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.thumb{min-height:200px;position:relative;display:flex;align-items:center;justify-content:center}
+.thumb-zvonix{background:radial-gradient(220px 160px at 50% 60%,rgba(124,58,237,.55),#150a22 75%)}
+.thumb-zvonix i{
+  width:90px;height:90px;border-radius:24px;display:block;
+  background:linear-gradient(135deg,rgba(168,85,247,.6),rgba(76,29,149,.3));
+  border:1px solid rgba(216,180,254,.4);transform:rotate(18deg);
+  box-shadow:inset 0 0 30px rgba(233,213,255,.3);
+}
+.thumb-lumera{background:radial-gradient(220px 160px at 50% 50%,rgba(212,245,66,.16),#101208 75%)}
+.thumb-lumera i{
+  font-family:'Space Grotesk';font-style:normal;font-weight:700;font-size:26px;
+  color:#d4f542;letter-spacing:3px;
+}
+.thumb-404{background:radial-gradient(240px 170px at 50% 50%,rgba(88,28,135,.35),#0a070f 75%)}
+.thumb-404 i{
+  font-family:'Space Grotesk';font-style:normal;font-weight:700;font-size:56px;
+  color:rgba(255,255,255,.12);
+}
+.work-body{padding:28px 32px;display:flex;flex-direction:column;justify-content:center}
+.work-tags{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.work-tags span{
+  font-size:11.5px;font-weight:600;color:var(--text-dim);
+  border:1px solid var(--border);border-radius:999px;padding:4px 12px;
+}
+.work h3{font-size:20px;margin-bottom:8px}
+.work p{font-size:14px;color:var(--text-dim);margin-bottom:16px}
+.work-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--accent)}
+.work-link svg{width:15px;height:15px;transition:transform .2s}
+.work:hover .work-link svg{transform:translateX(4px)}
+
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.skill{
+  background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:24px;
+}
+.skill svg{width:26px;height:26px;color:var(--accent);margin-bottom:14px}
+.skill h3{font-size:15px;margin-bottom:8px}
+.skill p{font-size:13px;color:var(--text-dim)}
+
+.contact{
+  text-align:center;background:var(--surface);border:1px solid var(--border);
+  border-radius:24px;padding:52px 32px;
+}
+.contact h2{margin-bottom:12px}
+.contact p{color:var(--text-dim);font-size:14.5px;max-width:480px;margin:0 auto 30px}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;cursor:pointer;
+  font-weight:600;font-size:15px;color:#0a0a0f;background:#fff;
+  border-radius:999px;padding:14px 30px;min-height:48px;
+  transition:transform .2s,box-shadow .2s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(139,124,246,.35)}
+.btn:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+footer{padding:36px 0;text-align:center;font-size:13px;color:var(--text-dim)}
+
+@media(max-width:760px){
+  .work{grid-template-columns:1fr}
+  .thumb{min-height:150px}
+  .skills-grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <span class="badge">Портфолио · веб-разработка</span>
+    <h1>Делаю сайты, которые <span>выглядят дорого</span></h1>
+    <p>Лендинги, промо-страницы и Telegram-боты для малого бизнеса. Быстро, современно и с вниманием к деталям.</p>
+  </div>
+</header>
+
+<main>
+<section id="works">
+  <div class="container">
+    <h2>Работы</h2>
+    <div class="works">
+
+      <a class="work" href="zvonix/index.html">
+        <div class="thumb thumb-zvonix" aria-hidden="true"><i></i></div>
+        <div class="work-body">
+          <div class="work-tags"><span>Лендинг</span><span>SaaS</span><span>Тёмная тема</span><span>Glassmorphism</span></div>
+          <h3>Zvonix AI — платформа исходящих звонков</h3>
+          <p>Промо-сайт для ИИ-сервиса: стеклянные 3D-формы, фиолетовые градиенты, секции возможностей, результатов и отраслей.</p>
+          <span class="work-link">Смотреть демо <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+
+      <a class="work" href="lumera/index.html">
+        <div class="thumb thumb-lumera" aria-hidden="true"><i>LUMERA</i></div>
+        <div class="work-body">
+          <div class="work-tags"><span>Лендинг</span><span>Финтех</span><span>Интерактив</span></div>
+          <h3>LUMERA — монетизация для авторов</h3>
+          <p>Тёмный лендинг с лаймовым акцентом и живым калькулятором дохода на ползунке: двигаешь — цифры пересчитываются.</p>
+          <span class="work-link">Смотреть демо <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+
+      <a class="work" href="zvonix/404.html">
+        <div class="thumb thumb-404" aria-hidden="true"><i>404</i></div>
+        <div class="work-body">
+          <div class="work-tags"><span>Страница ошибки</span><span>Минимализм</span></div>
+          <h3>Страница 404 «Something went wrong»</h3>
+          <p>Атмосферная страница ошибки: размытые формы на фоне, призрачная цифра 404 и одна заметная кнопка возврата.</p>
+          <span class="work-link">Смотреть демо <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <h2>Что умею</h2>
+    <div class="skills-grid">
+      <div class="skill">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m8 6-6 6 6 6m8-12 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Лендинги и визитки</h3>
+        <p>Адаптивные страницы: телефон, планшет, компьютер. Тёмные и светлые темы, анимации, быстрая загрузка.</p>
+      </div>
+      <div class="skill">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.8-.9L3 21l2-4.9a8.4 8.4 0 1 1 16-4.6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        <h3>Telegram-боты</h3>
+        <p>Боты для записи, викторин и ответов на вопросы — под задачу вашего бизнеса.</p>
+      </div>
+      <div class="skill">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        <h3>Правки и доработки</h3>
+        <p>Обновить цены, добавить фото, поправить вёрстку — мелкие задачи, за которые студии не берутся.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact">
+      <h2>Нужен сайт?</h2>
+      <p>Напишите — обсудим задачу и сроки. Общение и оплата ведутся через моего родителя.</p>
+      <a class="btn" href="#">Написать в Telegram
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">Сделано вручную на HTML, CSS и JavaScript — без конструкторов.</div>
+</footer>
+
+</body>
+</html>

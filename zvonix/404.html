@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 — Zvonix AI</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:#08050d;color:#f5f1fa;
+  min-height:100dvh;display:flex;flex-direction:column;
+  overflow:hidden;position:relative;
+}
+/* размытые "стеклянные" формы на фоне */
+body::before,body::after{
+  content:"";position:absolute;border-radius:40%;
+  filter:blur(90px);pointer-events:none;
+}
+body::before{
+  width:60vw;height:60vw;left:-15vw;top:-20vw;
+  background:radial-gradient(circle,rgba(88,28,135,.35),transparent 65%);
+  transform:rotate(25deg);
+}
+body::after{
+  width:50vw;height:50vw;right:-10vw;bottom:-15vw;
+  background:radial-gradient(circle,rgba(63,25,90,.4),transparent 65%);
+}
+main{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;position:relative;padding:24px;
+}
+.ghost{
+  position:absolute;font-family:'Space Grotesk';font-weight:700;
+  font-size:clamp(180px,38vw,460px);line-height:1;
+  color:transparent;
+  background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.015));
+  -webkit-background-clip:text;background-clip:text;
+  user-select:none;filter:blur(2px);
+}
+h1{
+  font-family:'Space Grotesk';font-weight:600;
+  font-size:clamp(40px,8vw,84px);line-height:1.1;
+  position:relative;margin-bottom:48px;
+  background:linear-gradient(180deg,#ffffff 30%,#8b8494);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.btn{
+  position:relative;display:inline-flex;align-items:center;gap:14px;
+  font-weight:600;font-size:16px;color:#14061f;
+  background:#fff;border-radius:999px;padding:14px 14px 14px 28px;
+  text-decoration:none;transition:transform .2s ease,box-shadow .2s ease;
+  min-height:48px;cursor:pointer;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(168,85,247,.4)}
+.btn:focus-visible{outline:3px solid #a855f7;outline-offset:3px}
+.btn span{
+  width:38px;height:38px;border-radius:50%;flex:none;
+  background:#9333ea;color:#fff;
+  display:inline-flex;align-items:center;justify-content:center;
+}
+.btn svg{width:16px;height:16px}
+footer{
+  position:relative;padding:20px 28px;font-size:14px;font-weight:600;
+  font-family:'Space Grotesk';
+}
+</style>
+</head>
+<body>
+<main>
+  <div class="ghost" aria-hidden="true">404</div>
+  <h1>Что-то пошло<br>не так…</h1>
+  <a class="btn" href="index.html">На главную <span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+</main>
+<footer>Zvonix AI</footer>
+</body>
+</html>
