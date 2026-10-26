@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Название во вкладке и описание для поисковиков — поменяйте под ферму -->
+<title>Ягодная поляна — фермерская клубника, самосбор и доставка</title>
+<meta name="description" content="Свежая клубника с фермерского поля: самосбор, самовывоз и доставка. Варенье, джем, замороженные и сушёные ягоды.">
+<meta property="og:title" content="Ягодная поляна — фермерская клубника">
+<meta property="og:description" content="Свежая клубника, самосбор на поле, доставка и домашние заготовки.">
+<meta property="og:image" content="img/hero-field.webp">
+<meta name="theme-color" content="#16382a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍓</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;700;800&display=swap">
+<link rel="preload" as="image" href="img/hero-field.webp" fetchpriority="high">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Перейти к содержимому</a>
+
+<!-- ЛЕВОЕ МЕНЮ: пункты берутся из content.js → menu -->
+<aside class="sidebar" id="sidebar" aria-label="Главное меню">
+  <a class="logo" href="#top" data-slot="logo"></a>
+  <nav class="side-nav" data-slot="menu"></nav>
+  <div class="side-bottom">
+    <div class="side-season" data-slot="season"></div>
+    <a class="side-phone" data-slot="phone"></a>
+    <div class="side-messengers" data-slot="messengers"></div>
+  </div>
+</aside>
+<div class="scrim" data-action="close-menu" hidden></div>
+
+<div class="page" id="top">
+
+  <!-- ВЕРХНЕЕ МЕНЮ -->
+  <header class="topbar">
+    <button class="burger" type="button" data-action="toggle-menu" aria-controls="sidebar" aria-expanded="false" aria-label="Открыть меню">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="logo logo-top" href="#top" data-slot="logo"></a>
+    <div class="top-season" data-slot="season"></div>
+    <nav class="top-nav" data-slot="top-menu" aria-label="Быстрые ссылки"></nav>
+    <a class="top-phone" data-slot="phone"></a>
+    <a class="btn btn-primary btn-sm" href="#order">Заказать</a>
+  </header>
+
+  <main id="main">
+
+    <!-- ПЕРВЫЙ ЭКРАН: слайдер + кнопки -->
+    <section class="hero">
+      <div class="hero-card" aria-roledescription="карусель" aria-label="Фото фермы">
+        <div class="slides" data-slot="slides"></div>
+        <div class="hero-content">
+          <h1 data-slot="hero-title"></h1>
+          <p class="hand hero-hand" data-slot="hero-hand"></p>
+          <p class="hero-text" data-slot="hero-text"></p>
+          <div class="hero-buttons" data-slot="hero-buttons"></div>
+        </div>
+        <div class="hero-controls">
+          <p class="slide-caption" data-slot="slide-caption" aria-live="polite"></p>
+          <div class="slide-dots" data-slot="slide-dots"></div>
+        </div>
+        <a class="sticker" href="#order" aria-label="Заказать клубнику">
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <defs><path id="circle" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+            <text><textPath href="#circle" textLength="484" lengthAdjust="spacing">СВЕЖАЯ КЛУБНИКА • ЗАКАЗАТЬ • </textPath></text>
+          </svg>
+          <span>🍓</span>
+        </a>
+      </div>
+      <div class="highlights" data-slot="highlights"></div>
+    </section>
+
+    <!-- ПРОДУКЦИЯ -->
+    <section class="section" id="products">
+      <div class="section-head">
+        <span class="tag tag-red">Продукция</span>
+        <h2>Ягоды и&nbsp;заготовки</h2>
+        <p class="hand section-hand">с нашего поля</p>
+      </div>
+      <div class="chips" data-slot="product-filters" role="group" aria-label="Фильтр продукции"></div>
+      <div class="products" data-slot="products"></div>
+    </section>
+
+    <!-- САМОСБОР -->
+    <section class="section" id="pick">
+      <div class="pick" data-slot="pick"></div>
+    </section>
+
+    <!-- О НАС -->
+    <section class="section" id="about">
+      <div class="section-head">
+        <span class="tag tag-yellow">О нас</span>
+        <h2 data-slot="about-title"></h2>
+      </div>
+      <div class="about" data-slot="about"></div>
+      <ol class="timeline" data-slot="timeline"></ol>
+    </section>
+
+    <!-- ГАЛЕРЕЯ -->
+    <section class="section" id="gallery">
+      <div class="section-head">
+        <span class="tag tag-green">Галерея</span>
+        <h2>Жизнь фермы</h2>
+        <p class="hand section-hand">поле, теплицы и сбор урожая</p>
+      </div>
+      <div class="gallery" data-slot="gallery"></div>
+    </section>
+
+    <!-- ДОСТАВКА И САМОВЫВОЗ -->
+    <section class="section" id="delivery">
+      <div class="section-head">
+        <span class="tag tag-pink">Доставка</span>
+        <h2>Как получить заказ</h2>
+      </div>
+      <div class="delivery" data-slot="delivery"></div>
+    </section>
+
+    <!-- СВОИ РАЗДЕЛЫ из content.js → customSections -->
+    <div data-slot="custom-sections"></div>
+
+    <!-- ЗАКАЗ -->
+    <section class="section" id="order">
+      <div class="order">
+        <div class="order-intro">
+          <span class="tag tag-red">Заказ</span>
+          <h2>Оформить заявку</h2>
+          <p>Заполните форму — мы получим заявку в мессенджере или по телефону, перезвоним и подтвердим заказ.</p>
+          <p class="hand order-hand">ответим в течение часа</p>
+        </div>
+        <form class="order-form" id="order-form" novalidate>
+          <div class="field">
+            <label for="f-name">Ваше имя</label>
+            <input id="f-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="f-phone">Телефон</label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7" required>
+          </div>
+          <div class="field field-wide">
+            <label for="f-product">Что заказать</label>
+            <select id="f-product" name="product" data-slot="order-products"></select>
+          </div>
+          <div class="field">
+            <label for="f-qty">Количество</label>
+            <input id="f-qty" name="qty" placeholder="Например, 3 кг">
+          </div>
+          <div class="field">
+            <label for="f-date">Желаемая дата</label>
+            <input id="f-date" name="date" type="date">
+          </div>
+          <fieldset class="field field-wide">
+            <legend>Способ получения</legend>
+            <div class="segmented" data-slot="order-methods"></div>
+          </fieldset>
+          <div class="field field-wide" data-address hidden>
+            <label for="f-address">Адрес доставки</label>
+            <input id="f-address" name="address" autocomplete="street-address">
+          </div>
+          <div class="field field-wide">
+            <label for="f-comment">Комментарий</label>
+            <textarea id="f-comment" name="comment" rows="3"></textarea>
+          </div>
+          <p class="form-error" role="alert" hidden></p>
+          <button class="btn btn-primary btn-block field-wide" type="submit">Отправить заявку</button>
+        </form>
+        <div class="order-done" data-slot="order-done" hidden></div>
+      </div>
+    </section>
+
+    <!-- КОНТАКТЫ -->
+    <section class="section" id="contacts">
+      <div class="section-head">
+        <span class="tag tag-green">Контакты</span>
+        <h2>Ждём в гости</h2>
+      </div>
+      <div class="contacts" data-slot="contacts"></div>
+    </section>
+
+  </main>
+
+  <footer class="footer" data-slot="footer"></footer>
+</div>
+
+<!-- Просмотр фото из галереи -->
+<div class="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр фото" hidden>
+  <button class="lb-btn lb-close" type="button" data-action="lb-close" aria-label="Закрыть">✕</button>
+  <button class="lb-btn lb-prev" type="button" data-action="lb-prev" aria-label="Предыдущее фото">‹</button>
+  <img alt="">
+  <button class="lb-btn lb-next" type="button" data-action="lb-next" aria-label="Следующее фото">›</button>
+</div>
+
+<noscript><p class="noscript">Для работы сайта включите JavaScript в браузере.</p></noscript>
+
+<script src="content.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
