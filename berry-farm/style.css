@@ -1,14 +1,14 @@
 /* ===== Цвета и шрифты: поменяйте здесь, чтобы перекрасить весь сайт ===== */
 :root {
-  --cream: #fbf6ee;
-  --cream-2: #f3eadc;
-  --paper: #fffdf8;
+  --cream: #f8c9cf;
+  --cream-2: #efb2bd;
+  --paper: #ffe4df;
   --green: #16382a;
   --leaf: #3d8b57;
   --mint: #dcebdc;
-  --red: #e2303f;
-  --red-dark: #bb1e2c;
-  --pink: #fbe3df;
+  --red: #b92140;
+  --red-dark: #92152e;
+  --pink: #f3aebc;
   --yellow: #f7df76;
   --ink: #1c1b19;
   --ink-dim: #5f5a52;
@@ -108,7 +108,7 @@ h1, h2, h3 { font-family: var(--f-display); line-height: 1.08; letter-spacing: -
 .topbar {
   position: sticky; top: 0; z-index: 50; display: flex; align-items: center; gap: 20px;
   height: 76px; padding: 0 var(--pad);
-  background: rgba(251, 246, 238, .86); backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid var(--line);
+  background: var(--cream); backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid var(--line);
 }
 .burger, .logo-top { display: none; }
 .top-season { display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: var(--mint); color: var(--green); font-size: 13px; font-weight: 700; white-space: nowrap; }
@@ -429,4 +429,36 @@ h1, h2, h3 { font-family: var(--f-display); line-height: 1.08; letter-spacing: -
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .slides img { transform: none; }
+}
+
+/* ===== Ягодная палитра и варианты для сравнения ===== */
+:root { --wash: #ec9caa; --visit: #a91e39; }
+:root[data-theme="meadow"] {
+  --cream: #d3e8ab; --cream-2: #bdd58f; --paper: #e9f2ce;
+  --pink: #f3c5ba; --mint: #c1dda5; --wash: #b2cf83; --visit: #245139;
+}
+:root[data-theme="sunshine"] {
+  --cream: #f8d88d; --cream-2: #efc46e; --paper: #ffebbb;
+  --pink: #f6bda2; --mint: #dce6ac; --wash: #f0bd68; --visit: #9c382b;
+}
+body { background-image: radial-gradient(ellipse at 95% 5%, var(--wash), transparent 45%); background-attachment: fixed; }
+.hero-location { margin-bottom: 18px; font-size: 12px; letter-spacing: .13em; text-transform: uppercase; font-weight: 800; color: var(--yellow); }
+.highlight:nth-child(2) { background: var(--mint); }
+.highlight:nth-child(3) { background: var(--yellow); }
+.highlight:nth-child(4) { background: var(--pink); }
+.section-head h2 { color: var(--green); }
+.owner { background: var(--green); width: 100%; }
+.owner-symbol { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; height: 70%; background: radial-gradient(circle, #315c38, var(--green) 70%); }
+.owner-symbol svg { width: 112px; height: 112px; transform: rotate(-12deg); }
+.owner-symbol span { font-family: var(--f-hand); font-size: 27px; color: var(--yellow); }
+.owner figcaption { background: var(--paper); padding: 20px; }
+.owner .hand { font-family: var(--f-display); font-size: clamp(18px, 2vw, 24px); line-height: 1.3; margin-bottom: 8px; }
+.visit-card { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 20px; min-height: 360px; padding: 40px; border-radius: 28px; background: var(--visit); color: #fff5de; }
+.visit-card h3 { font-size: clamp(30px, 3vw, 46px); }
+.visit-card small { max-width: 360px; line-height: 1.6; }
+.field input, .field select, .field textarea { background-color: #fff4dd; }
+@media (max-width: 640px) {
+  .visit-card { padding: 28px; }
+  .hero-location { max-width: 200px; font-size: 11px; }
+  .topbar > .btn { margin-left: auto; }
 }

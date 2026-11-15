@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Название во вкладке и описание для поисковиков — поменяйте под ферму -->
 <title>Ягодная поляна — фермерская клубника, самосбор и доставка</title>
-<meta name="description" content="Свежая клубника с фермерского поля: самосбор, самовывоз и доставка. Варенье, джем, замороженные и сушёные ягоды.">
+<meta name="description" content="Клубничная ферма в посёлке Покров, Заокский район Тульской области. Основатель — Алексей Свен Торжецкий. Продукция, самосбор и заготовки.">
 <meta property="og:title" content="Ягодная поляна — фермерская клубника">
 <meta property="og:description" content="Свежая клубника, самосбор на поле, доставка и домашние заготовки.">
 <meta property="og:image" content="img/hero-field.webp">
@@ -15,6 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;700;800&display=swap">
 <link rel="preload" as="image" href="img/hero-field.webp" fetchpriority="high">
+<script src="theme.js"></script>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -54,6 +55,7 @@
       <div class="hero-card" aria-roledescription="карусель" aria-label="Фото фермы">
         <div class="slides" data-slot="slides"></div>
         <div class="hero-content">
+          <p class="hero-location">Тульская область · Покров</p>
           <h1 data-slot="hero-title"></h1>
           <p class="hand hero-hand" data-slot="hero-hand"></p>
           <p class="hero-text" data-slot="hero-text"></p>
@@ -128,8 +130,8 @@
         <div class="order-intro">
           <span class="tag tag-red">Заказ</span>
           <h2>Оформить заявку</h2>
-          <p>Заполните форму — мы получим заявку в мессенджере или по телефону, перезвоним и подтвердим заказ.</p>
-          <p class="hand order-hand">ответим в течение часа</p>
+          <p>Составьте список для заказа. Форма подготовит текст, который можно скопировать. Контакты для отправки заявки скоро появятся на сайте.</p>
+          <p class="hand order-hand">всё для ягодного дня</p>
         </div>
         <form class="order-form" id="order-form" novalidate>
           <div class="field">
@@ -165,7 +167,7 @@
             <textarea id="f-comment" name="comment" rows="3"></textarea>
           </div>
           <p class="form-error" role="alert" hidden></p>
-          <button class="btn btn-primary btn-block field-wide" type="submit">Отправить заявку</button>
+          <button class="btn btn-primary btn-block field-wide" type="submit">Подготовить заявку</button>
         </form>
         <div class="order-done" data-slot="order-done" hidden></div>
       </div>

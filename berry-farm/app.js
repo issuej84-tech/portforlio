@@ -209,7 +209,7 @@
   fill("about-title", esc(about.title));
   fill("about",
     '<figure class="owner reveal">' +
-      (owner.photo ? '<img src="' + esc(owner.photo) + '" alt="' + esc(owner.name) + '" loading="lazy" decoding="async">' : "") +
+      (owner.photo ? '<img src="' + esc(owner.photo) + '" alt="' + esc(owner.name) + '" loading="lazy" decoding="async">' : '<div class="owner-symbol" aria-hidden="true">' + BERRY + '<span>С любовью к ягодам</span></div>') +
       '<figcaption><span class="hand">' + esc(owner.name) + "</span><small>" + esc(owner.role) + "</small></figcaption>" +
     "</figure>" +
     '<div class="about-text reveal">' + list(about.paragraphs).map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("") +
@@ -340,7 +340,7 @@
       '<span class="done-mark">✓</span><h3>Заявка готова</h3>' +
       "<p>" + (channels.length
         ? "Нажмите, куда отправить: откроется мессенджер с уже написанным сообщением."
-        : "Скопируйте текст и отправьте нам удобным способом или позвоните.") + "</p>" +
+        : "Текст подготовлен, но ещё не отправлен. Сохраните его: контакты для связи с фермой скоро появятся на сайте.") + "</p>" +
       '<pre class="done-text"></pre>' +
       '<div class="done-actions">' +
         channels.map(function (c) { return '<a class="btn btn-primary" href="' + esc(c.href) + '" target="_blank" rel="noopener">' + icon(c.icon) + esc(c.label) + "</a>"; }).join("") +
@@ -382,7 +382,7 @@
     '<div class="contact-cards">' + contactCards.map(function (c) {
       return '<div class="contact-card reveal">' + icon(c.icon) + "<div><small>" + esc(c.title) + "</small><p>" + c.html + "</p></div></div>";
     }).join("") + "</div>" +
-    (C.mapEmbed ? '<div class="map reveal"><iframe src="' + esc(C.mapEmbed) + '" title="Карта: как к нам доехать" loading="lazy" allowfullscreen></iframe></div>' : ""));
+    (C.mapEmbed ? '<div class="map reveal"><iframe src="' + esc(C.mapEmbed) + '" title="Карта: как к нам доехать" loading="lazy" allowfullscreen></iframe></div>' : C.mapSearch ? '<div class="visit-card reveal"><span class="tag tag-yellow">В гости на ферму</span><h3>Встречаемся<br>в Покрове</h3><p>Тульская область, Заокский район</p><a class="btn btn-light" href="' + esc(C.mapSearch) + '" target="_blank" rel="noopener">Найти на Яндекс Картах ' + icon("arrow") + '</a><small>Поиск по адресу. Точную точку въезда уточняйте перед поездкой.</small></div>' : ""));
 
   // ---------- подвал ----------
   var credits = S.credits;
